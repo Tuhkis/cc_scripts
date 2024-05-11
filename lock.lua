@@ -60,8 +60,11 @@ while run do
     end
   else
     local e1, c1 = os.pullEvent('char')
-    if #guess < 64 then
-      guess = guess .. c1
+    -- should be true no matter what, but apparantly isn't. :shrug:
+    if e1 == 'char' then
+      if #guess < 64 then
+        guess = guess .. c1
+      end
     end
   end
 end
